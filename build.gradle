@@ -101,7 +101,7 @@ task coverage(type: JacocoReport) {
     }
     println "=============classDirectories:"
     classDirectories.each {File file ->
-     println file.name
+     println file.absolutePath
     }
     println "=============End Printing classDirectories:"
     reports {
