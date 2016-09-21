@@ -98,11 +98,11 @@ task coverage(type: JacocoReport) {
             fileTree(dir: it, exclude: ['**/*.jar'])
         })
     }
-    println "=============sourceDirectories:"
-    sourceDirectories.each {File file ->
+    println "=============executionData:"
+    executionData.each {File file ->
      println file.absolutePath
     }
-    println "=============End Printing sourceDirectories:"
+    println "=============End Printing executionData:"
     reports {
         html.enabled = true
         xml.enabled = true
