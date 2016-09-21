@@ -91,15 +91,19 @@ task wrapper(type: Wrapper) {
 task coverage(type: JacocoReport) {
     sourceDirectories = files(allprojects.sourceSets.main.allSource.srcDirs)
     classDirectories =  files(allprojects.sourceSets.main.output)
-    println "=============classDirectories:"
-    println classDirectories
-    println "=============End Printing classDirectories:"
+    
+    
     executionData = files(allprojects.jacocoTestReport.executionData)
     afterEvaluate {
         classDirectories = files(classDirectories.files.collect {
             fileTree(dir: it, exclude: ['**/*.jar'])
         })
     }
+    println "=============classDirectories:"
+    classDirectories.each {File file ->
+     println file.name
+    }
+    println "=============End Printing classDirectories:"
     reports {
         html.enabled = true
         xml.enabled = true
