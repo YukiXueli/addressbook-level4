@@ -179,5 +179,4 @@ guiUnitTests.mustRunAfter headless
 guiTests.mustRunAfter headless
 allTests.mustRunAfter headless
 
-//defaultTasks 'clean', 'headless', 'allTests', 'coverage'
-defaultTasks 'clean', 'headless', 'allTests'
+defaultTasks 'clean', 'headless', 'allTests', 'coverage'
