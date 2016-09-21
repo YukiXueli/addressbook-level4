@@ -87,14 +87,15 @@ allprojects {
 task wrapper(type: Wrapper) {
     gradleVersion = '2.12'
 }
-/***
+
 task coverage(type: JacocoReport) {
     sourceDirectories = files(allprojects.sourceSets.main.allSource.srcDirs)
     classDirectories =  files(allprojects.sourceSets.main.output)
+    println classDirectories
     executionData = files(allprojects.jacocoTestReport.executionData)
     afterEvaluate {
         classDirectories = files(classDirectories.files.collect {
-            //fileTree(dir: it, exclude: ['**\/*.jar'])
+            fileTree(dir: it, exclude: ['**/*.jar'])
         })
     }
     reports {
@@ -112,7 +113,7 @@ tasks.coveralls {
     dependsOn coverage
     onlyIf { System.env.'CI' }
 }
-***/
+
 class AddressBookTest extends Test {
     public AddressBookTest() {
     	  forkEvery = 1
